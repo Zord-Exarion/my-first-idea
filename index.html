@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 첫 번째 아이디어</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 밝고 산뜻한 푸른빛이 감도는 화사한 배경 */
+            background: radial-gradient(circle at center, #ffffff 0%, #e8f0fe 100%); 
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 80px;
+            /* 밝은 톤의 글래스모피즘 효과 */
+            background: rgba(255, 255, 255, 0.6); 
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            /* 파란 텍스트에 어울리는 은은한 푸른빛 그림자 */
+            box-shadow: 0 20px 50px rgba(0, 82, 212, 0.15); 
+            animation: fadeIn 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0, 82, 212, 0.25);
+        }
+
+        h1 {
+            font-size: 5.5rem; /* 글자 크기 대폭 확대 */
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -2px;
+            /* 선명하고 고급스러운 파란색 그라데이션 텍스트 */
+            background: linear-gradient(135deg, #0052D4 0%, #4364F7 50%, #6FB1FC 100%); 
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* 글자에 입체감을 더하는 옅은 파란빛 네온 반사 효과 */
+            text-shadow: 0px 8px 16px rgba(67, 100, 247, 0.2); 
+            line-height: 1.2;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 모바일 화면을 위한 부드러운 반응형 사이즈 조정 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.5rem;
+            }
+            .container {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 오탈자 교정: '첫번째' -> '첫 번째' -->
+        <h1>내 첫 번째 아이디어</h1>
+    </div>
+</body>
+</html>
