@@ -5,26 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>나의 첫 서비스</title>
+    <!-- 한글 가독성이 뛰어난 Pretendard 폰트 불러오기 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <style>
         /* 테마 색상 변수 정의 */
         :root {
-            --primary-green: #86efac; /* 연한 녹색 */
-            --primary-green-dark: #22c55e; /* 중간 녹색 */
-            --secondary-dark: #064e3b; /* 어두운 녹색 (보조 색상) */
-            --bg-light: #f0fdf4; /* 아주 연한 녹색 배경 */
+            --primary-green: #86efac;
+            --primary-green-dark: #22c55e;
+            --secondary-dark: #064e3b;
+            --bg-light: #f0fdf4;
             --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
             --header-gradient: linear-gradient(90deg, #10b981, #059669);
             --text-main: #064e3b;
-            --text-muted: #374151;
+            --text-muted: #4b5563; /* 가독성을 위해 본문 색상 약간 조정 */
         }
 
         body,
         html {
             height: 100%;
             margin: 0;
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            /* Pretendard를 최우선 폰트로 설정 */
+            font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
             color: var(--text-main);
             background: var(--bg-gradient);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
@@ -32,7 +37,7 @@
             flex-direction: column;
         }
 
-        /* 헤더 스타일: 녹색 테마 적용 */
+        /* 헤더 스타일 */
         header {
             background: var(--header-gradient);
             color: white;
@@ -49,8 +54,8 @@
         header h1.title {
             margin: 0;
             font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+            font-weight: 800; /* 제목: 굵게 */
+            letter-spacing: -0.03em;
         }
 
         .nav-menu ul {
@@ -58,23 +63,22 @@
             margin: 0;
             padding: 0;
             display: flex;
-            gap: 30px;
+            gap: 32px;
         }
 
         .nav-menu li a {
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 600; /* 메뉴: 적당히 굵게 */
+            transition: all 0.2s ease;
         }
 
         .nav-menu li a:hover {
             color: var(--primary-green);
-            transform: translateY(-2px);
         }
 
-        /* 본문 구역 */
+        /* 본문 구역 및 섹션 */
         main {
             flex: 1;
             display: flex;
@@ -83,7 +87,7 @@
         }
 
         .section {
-            padding: 100px 20px;
+            padding: 120px 24px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -92,99 +96,102 @@
         }
 
         .section-title {
-            font-size: 36px;
-            font-weight: 800;
-            margin-bottom: 50px;
-            letter-spacing: -1px;
+            font-size: 38px;
+            font-weight: 800; /* 제목: 굵게 */
+            margin-bottom: 56px;
+            letter-spacing: -0.04em;
             color: var(--secondary-dark);
+            text-align: center;
         }
 
         #reviews {
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
         }
 
         /* 컨테이너 스타일 */
         .container {
             text-align: center;
-            padding: 60px 100px;
-            background: rgba(255, 255, 255, 0.6);
+            padding: 70px 100px;
+            background: rgba(255, 255, 255, 0.65);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            border-radius: 32px;
-            box-shadow: 0 10px 40px rgba(6, 78, 59, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 40px;
+            box-shadow: 0 12px 48px rgba(6, 78, 59, 0.05);
             animation: slideUpFade 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
             max-width: 800px;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .content-text {
-            font-size: 44px;
-            font-weight: 800;
+            font-size: 48px;
+            font-weight: 800; /* 강조 텍스트: 굵게 */
             margin: 0;
-            letter-spacing: -1.5px;
+            letter-spacing: -0.05em;
             color: var(--secondary-dark);
-            line-height: 1.1;
+            line-height: 1.2;
         }
 
-        /* 버튼 스타일: 요청대로 녹색 테마 적용 */
+        /* 버튼 스타일 */
         .btn {
-            margin-top: 40px;
-            padding: 18px 42px;
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--secondary-dark); /* 밝은 녹색 배경에 어두운 텍스트 */
+            margin-top: 48px;
+            padding: 20px 48px;
+            font-size: 19px;
+            font-weight: 700; /* 버튼: 굵게 */
+            color: var(--secondary-dark);
             background-color: var(--primary-green);
             border: none;
-            border-radius: 50px;
+            border-radius: 60px;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(134, 239, 172, 0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 24px rgba(134, 239, 172, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
             outline: none;
         }
 
         .btn:hover {
             background-color: var(--secondary-dark);
-            color: white; /* 어두운 배경에는 흰색 텍스트 */
+            color: white;
             transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 30px rgba(6, 78, 59, 0.4);
+            box-shadow: 0 16px 32px rgba(6, 78, 59, 0.35);
         }
 
         /* 후기 카드 스타일 */
         .review-grid {
             display: flex;
-            gap: 30px;
+            gap: 32px;
             justify-content: center;
             flex-wrap: wrap;
-            max-width: 1000px;
+            max-width: 1050px;
             width: 100%;
         }
 
         .review-card {
             background: white;
-            padding: 40px;
-            border-radius: 24px;
+            padding: 48px;
+            border-radius: 32px;
             flex: 1;
-            min-width: 350px;
-            max-width: 450px;
-            box-shadow: 0 10px 25px rgba(6, 78, 59, 0.03);
+            min-width: 320px;
+            max-width: 480px;
+            box-shadow: 0 8px 32px rgba(6, 78, 59, 0.04);
             text-align: left;
-            transition: all 0.4s ease;
+            transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
             display: flex;
             flex-direction: column;
-            gap: 20px;
-            border: 1px solid #dcfce7;
+            gap: 24px;
+            border: 1px solid #e2fce9;
         }
 
         .review-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-12px);
             border-color: var(--primary-green-dark);
-            box-shadow: 0 20px 40px rgba(6, 78, 59, 0.08);
+            box-shadow: 0 24px 48px rgba(6, 78, 59, 0.08);
         }
 
         .profile-img {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--primary-green);
@@ -192,14 +199,16 @@
 
         .review-comment {
             font-size: 18px;
-            font-style: italic;
+            font-weight: 400; /* 본문: 일반 굵기 */
+            font-style: normal; /* 가독성을 위해 기울임 제거 고려 가능하나, 디자인상 유지 */
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.7;
+            word-break: keep-all; /* 한글 가독성 향상 */
         }
 
         .review-user {
             margin: 0;
-            font-weight: 700;
+            font-weight: 700; /* 이름: 굵게 */
             color: var(--secondary-dark);
             font-size: 16px;
         }
@@ -209,8 +218,9 @@
             background-color: #f0fdf4;
             color: #166534;
             text-align: center;
-            padding: 30px;
+            padding: 40px 20px;
             font-size: 14px;
+            font-weight: 400; /* 본문: 일반 굵기 */
             border-top: 1px solid #dcfce7;
         }
 
@@ -220,11 +230,11 @@
         }
 
         @media (max-width: 768px) {
-            header { padding: 15px 20px; }
-            .section { padding: 60px 20px; }
-            .review-card { min-width: 100%; }
-            .content-text { font-size: 32px; }
-            .container { padding: 40px 30px; }
+            header { padding: 15px 24px; }
+            .section { padding: 80px 24px; }
+            .content-text { font-size: 36px; }
+            .container { padding: 48px 24px; }
+            .section-title { font-size: 32px; }
         }
     </style>
 </head>
@@ -251,16 +261,16 @@
         </section>
 
         <section id="reviews" class="section">
-            <h2 class="section-title">무엇을 경험했나요?</h2>
+            <h2 class="section-title">생생한 이용 후기</h2>
             <div class="review-grid">
                 <div class="review-card">
                     <img src="assets/user_male.png" alt="사용자 후기 프로필 사진 1" class="profile-img">
-                    <p class="review-comment">"연한 녹색 테마가 마음을 정말 편안하게 해주네요. 눈이 피로하지 않아서 자주 들어오게 됩니다!"</p>
+                    <p class="review-comment">"새로 바뀐 Pretendard 폰트 덕분에 한글 가독성이 정말 좋아졌네요. 특히 굵은 제목과 일반 본문의 대비가 훌륭합니다."</p>
                     <p class="review-user">최** 님 (프리랜서 디자이너)</p>
                 </div>
                 <div class="review-card">
                     <img src="assets/user_female.png" alt="사용자 후기 프로필 사진 2" class="profile-img">
-                    <p class="review-comment">"버튼 클릭할 때 어두운 색으로 변하는 피드백이 확실해서 좋아요. 디자인 완성도가 정말 높습니다."</p>
+                    <p class="review-comment">"눈이 편안한 녹색 테마에 가독성 높은 폰트까지 더해지니 완성도가 완벽해졌어요. 한글이 이렇게 예뻐 보일 수 있나요?"</p>
                     <p class="review-user">김** 님 (콘텐츠 제작자)</p>
                 </div>
             </div>
@@ -268,7 +278,7 @@
     </main>
 
     <footer>
-        <p>ⓒ 2025 My Service</p>
+        <p>ⓒ 2025 My Service. All rights reserved.</p>
     </footer>
 
     <script>
@@ -289,8 +299,6 @@
             textElement.offsetHeight;
             textElement.style.animation = 'slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
             textElement.textContent = sentences[currentIndex];
-            // 이전의 동적 테마 변경 로직은 전체 테마와의 일관성을 위해 제거하거나 녹색 계열로 제한할 수 있습니다.
-            // 여기서는 전체 테마의 일관성을 위해 주 색상/보조 색상 체계를 유지합니다.
         });
     </script>
 </body>
