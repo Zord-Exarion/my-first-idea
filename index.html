@@ -36,7 +36,7 @@
             flex-direction: column;
         }
 
-        /* 헤더 스타일: 아이콘과 텍스트 정렬 */
+        /* 헤더 스타일: 데스크탑 기준 */
         header {
             background: var(--header-gradient);
             color: white;
@@ -48,12 +48,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 0.3s ease;
         }
 
         header .logo-area {
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         header h1.title {
@@ -63,10 +63,9 @@
             letter-spacing: -0.03em;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
-        /* 별 아이콘 스타일: 부드러운 애니메이션 추가 */
         .star-icon {
             width: 24px;
             height: 24px;
@@ -155,7 +154,6 @@
             line-height: 1.2;
         }
 
-        /* 버튼 스타일 및 호버 효과 강화 */
         .btn {
             margin-top: 48px;
             padding: 20px 48px;
@@ -174,7 +172,7 @@
         .btn:hover {
             background-color: var(--secondary-dark);
             color: white;
-            transform: translateY(-8px) scale(1.08); /* 클릭하고 싶은 피드백 강화 */
+            transform: translateY(-8px) scale(1.08);
             box-shadow: 0 20px 40px rgba(6, 78, 59, 0.4);
         }
 
@@ -252,12 +250,84 @@
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
+        /* ✅ 모바일 반응형 디자인 최적화 (768px 이하) */
         @media (max-width: 768px) {
-            header { padding: 15px 24px; }
-            .section { padding: 80px 24px; }
-            .content-text { font-size: 36px; }
-            .container { padding: 48px 24px; }
-            .section-title { font-size: 32px; }
+            /* 1️⃣ 헤더 메뉴 수직(세로) 정렬 및 중앙 정렬 */
+            header {
+                flex-direction: column;
+                padding: 20px 24px;
+                gap: 20px;
+                text-align: center;
+            }
+
+            header h1.title {
+                font-size: 20px;
+                justify-content: center;
+            }
+
+            .nav-menu ul {
+                flex-direction: column; /* 메뉴 항목 세로로 쌓기 */
+                gap: 12px;
+                width: 100%;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 미세한 구분선 추가 */
+                padding-bottom: 8px;
+            }
+
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+
+            .nav-menu li a {
+                display: block;
+                width: 100%;
+                font-size: 15px;
+            }
+
+            /* 2️⃣ 본문 섹션 최적화 */
+            .section {
+                padding: 60px 20px;
+            }
+
+            .section-title {
+                font-size: 30px;
+                margin-bottom: 40px;
+            }
+
+            /* 3️⃣ 컨테이너 패딩 조절로 모바일 가독성 확보 */
+            .container {
+                padding: 40px 24px;
+                border-radius: 24px;
+            }
+
+            .content-text {
+                font-size: 32px;
+                letter-spacing: -0.03em;
+            }
+
+            .btn {
+                margin-top: 36px;
+                padding: 16px 40px;
+                font-size: 17px;
+                width: 100%; /* 모바일에서 버튼 너비 확장 제안 */
+                max-width: 300px;
+            }
+
+            /* 4️⃣ 후기 카드 자연스럽게 세로 정렬 */
+            .review-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .review-card {
+                min-width: 100%;
+                padding: 32px 24px;
+                border-radius: 20px;
+            }
         }
     </style>
 </head>
@@ -266,9 +336,8 @@
     <header>
         <div class="logo-area">
             <h1 class="title">
-                <!-- 별 아이콘 SVG 추가 -->
                 <svg class="star-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                 </svg>
                 나의 첫 서비스
             </h1>
