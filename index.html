@@ -252,7 +252,6 @@
 
         /* ✅ 모바일 반응형 디자인 최적화 (768px 이하) */
         @media (max-width: 768px) {
-            /* 1️⃣ 헤더 메뉴 수직(세로) 정렬 및 중앙 정렬 */
             header {
                 flex-direction: column;
                 padding: 20px 24px;
@@ -266,14 +265,14 @@
             }
 
             .nav-menu ul {
-                flex-direction: column; /* 메뉴 항목 세로로 쌓기 */
+                flex-direction: column;
                 gap: 12px;
                 width: 100%;
             }
 
             .nav-menu li {
                 width: 100%;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 미세한 구분선 추가 */
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                 padding-bottom: 8px;
             }
 
@@ -287,36 +286,39 @@
                 font-size: 15px;
             }
 
-            /* 2️⃣ 본문 섹션 최적화 */
             .section {
                 padding: 60px 20px;
             }
 
+            /* 1️⃣ 모바일 섹션 제목 폰트 크기 조정 */
             .section-title {
-                font-size: 30px;
-                margin-bottom: 40px;
+                font-size: 28px;
+                margin-bottom: 32px;
             }
 
-            /* 3️⃣ 컨테이너 패딩 조절로 모바일 가독성 확보 */
             .container {
-                padding: 40px 24px;
+                padding: 32px 20px; /* 고밀도 패딩 조정 */
                 border-radius: 24px;
             }
 
+            /* 2️⃣ 모바일 본문 폰트 크기 최적화 (가독성 향상) */
             .content-text {
-                font-size: 32px;
-                letter-spacing: -0.03em;
+                font-size: 26px; /* 32px에서 26px로 조정: 한 화면에 자연스럽게 담기도록 함 */
+                letter-spacing: -0.02em;
             }
 
+            /* 3️⃣ 모바일 버튼 패딩 최적화 (손가락 터치 반경 고려) */
             .btn {
-                margin-top: 36px;
-                padding: 16px 40px;
-                font-size: 17px;
-                width: 100%; /* 모바일에서 버튼 너비 확장 제안 */
-                max-width: 300px;
+                margin-top: 32px;
+                padding: 20px 0; /* 세로 높이를 충분히 확보하여 터치 편의성 극대화 */
+                font-size: 18px;
+                width: 100%;
+                max-width: 280px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
-            /* 4️⃣ 후기 카드 자연스럽게 세로 정렬 */
             .review-grid {
                 flex-direction: column;
                 align-items: center;
@@ -325,8 +327,13 @@
 
             .review-card {
                 min-width: 100%;
-                padding: 32px 24px;
+                padding: 28px 20px;
                 border-radius: 20px;
+            }
+
+            /* 모바일에서 후기 코멘트 폰트도 최적화 */
+            .review-comment {
+                font-size: 16px;
             }
         }
     </style>
