@@ -17,14 +17,13 @@
             --bg-gradient: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
             --header-gradient: linear-gradient(90deg, #10b981, #059669);
             --text-main: #064e3b;
-            --text-muted: #4b5563; /* 가독성을 위해 본문 색상 약간 조정 */
+            --text-muted: #4b5563;
         }
 
         body,
         html {
             height: 100%;
             margin: 0;
-            /* Pretendard를 최우선 폰트로 설정 */
             font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
             color: var(--text-main);
             background: var(--bg-gradient);
@@ -37,7 +36,7 @@
             flex-direction: column;
         }
 
-        /* 헤더 스타일 */
+        /* 헤더 스타일: 아이콘과 텍스트 정렬 */
         header {
             background: var(--header-gradient);
             color: white;
@@ -51,11 +50,34 @@
             align-items: center;
         }
 
+        header .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         header h1.title {
             margin: 0;
             font-size: 22px;
-            font-weight: 800; /* 제목: 굵게 */
+            font-weight: 800;
             letter-spacing: -0.03em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 별 아이콘 스타일: 부드러운 애니메이션 추가 */
+        .star-icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+            filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.3));
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
         }
 
         .nav-menu ul {
@@ -70,7 +92,7 @@
             color: rgba(255, 255, 255, 0.9);
             text-decoration: none;
             font-size: 16px;
-            font-weight: 600; /* 메뉴: 적당히 굵게 */
+            font-weight: 600;
             transition: all 0.2s ease;
         }
 
@@ -97,7 +119,7 @@
 
         .section-title {
             font-size: 38px;
-            font-weight: 800; /* 제목: 굵게 */
+            font-weight: 800;
             margin-bottom: 56px;
             letter-spacing: -0.04em;
             color: var(--secondary-dark);
@@ -109,7 +131,6 @@
             backdrop-filter: blur(12px);
         }
 
-        /* 컨테이너 스타일 */
         .container {
             text-align: center;
             padding: 70px 100px;
@@ -127,19 +148,19 @@
 
         .content-text {
             font-size: 48px;
-            font-weight: 800; /* 강조 텍스트: 굵게 */
+            font-weight: 800;
             margin: 0;
             letter-spacing: -0.05em;
             color: var(--secondary-dark);
             line-height: 1.2;
         }
 
-        /* 버튼 스타일 */
+        /* 버튼 스타일 및 호버 효과 강화 */
         .btn {
             margin-top: 48px;
             padding: 20px 48px;
             font-size: 19px;
-            font-weight: 700; /* 버튼: 굵게 */
+            font-weight: 700;
             color: var(--secondary-dark);
             background-color: var(--primary-green);
             border: none;
@@ -153,8 +174,12 @@
         .btn:hover {
             background-color: var(--secondary-dark);
             color: white;
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 16px 32px rgba(6, 78, 59, 0.35);
+            transform: translateY(-8px) scale(1.08); /* 클릭하고 싶은 피드백 강화 */
+            box-shadow: 0 20px 40px rgba(6, 78, 59, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(-2px) scale(0.95);
         }
 
         /* 후기 카드 스타일 */
@@ -199,28 +224,26 @@
 
         .review-comment {
             font-size: 18px;
-            font-weight: 400; /* 본문: 일반 굵기 */
-            font-style: normal; /* 가독성을 위해 기울임 제거 고려 가능하나, 디자인상 유지 */
+            font-weight: 400;
             color: var(--text-muted);
             line-height: 1.7;
-            word-break: keep-all; /* 한글 가독성 향상 */
+            word-break: keep-all;
         }
 
         .review-user {
             margin: 0;
-            font-weight: 700; /* 이름: 굵게 */
+            font-weight: 700;
             color: var(--secondary-dark);
             font-size: 16px;
         }
 
-        /* 푸터 스타일 */
         footer {
             background-color: #f0fdf4;
             color: #166534;
             text-align: center;
             padding: 40px 20px;
             font-size: 14px;
-            font-weight: 400; /* 본문: 일반 굵기 */
+            font-weight: 400;
             border-top: 1px solid #dcfce7;
         }
 
@@ -241,7 +264,15 @@
 
 <body>
     <header>
-        <h1 class="title">나의 첫 서비스</h1>
+        <div class="logo-area">
+            <h1 class="title">
+                <!-- 별 아이콘 SVG 추가 -->
+                <svg class="star-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                나의 첫 서비스
+            </h1>
+        </div>
         <nav class="nav-menu">
             <ul>
                 <li><a href="#features">소개</a></li>
